@@ -1,0 +1,95 @@
+# Questionnaire
+
+# InterviewQuestionnaire
+
+
+
+As we become better developers, structuring and organizing code becomes more and more important. We want to write code that improves readability, scalability, maintainability and performance, and minimizes the time spent debugging.
+
+1.Angular CLI
+
+  Create a project from scratch
+  Scaffold components, directives and services
+  Lint your code
+  Serve the application
+  Run unit- and end to end tests
+  
+2.Folder Structure
+  
+          |-- app
+             |-- modules
+               |-- home
+                   |-- [+] components
+                   |-- [+] pages
+                   |-- home-routing.module.ts
+                   |-- home.module.ts
+             |-- core
+               |-- [+] authentication
+               |-- [+] footer
+               |-- [+] guards
+               |-- [+] http
+               |-- [+] interceptors
+               |-- [+] mocks
+               |-- [+] services
+               |-- [+] header
+               |-- core.module.ts
+               |-- ensureModuleLoadedOnceGuard.ts
+               |-- logger.service.ts
+             |
+             |-- shared
+                  |-- [+] components
+                  |-- [+] directives
+                  |-- [+] pipes
+                  |-- [+] models
+             |
+             |-- [+] configs
+        |-- assets
+             |-- scss
+                  |-- [+] partials
+                  |-- _base.scss
+                  |-- styles.scss
+
+3.Write Readable Code
+
+    File names
+    Variable- and function names
+    Write Small pure functions
+    Remove unused code
+    Avoid code comments
+    Separation of Concerns
+  
+  4.Utilize TypeScript
+  
+  5.Use TSLint
+  
+  6.Avoid memory leaks
+  -----------------------------------------------------------------------------------------------------
+       private unsubscribe$: Subject<void> = new Subject<void>();
+        ...
+         this.itemService.findItems()
+          .pipe(
+             map(value => value.item)
+             takeUntil(this._destroyed$)
+           )
+          .subscribe();
+        ...
+        public ngOnDestroy(): void {
+          this.unsubscribe$.complete();
+          this.unsubscribe$.unsubscribe();
+        }
+   ------------------------------------------------------------------------------------------------------
+   
+   7. Clean up imports with path aliases
+   
+      import 'reusableComponent' from '../../../shared/components/reusable/reusable.component.ts';
+      
+      import 'reusableComponent' from '@app/shared/components/reusable.component.ts';
+      
+      To be able to do this, we need to add a baseUrl and the desired paths inside our tsconfig.json file:
+    
+    8. Lazy Load Your Modules
+    
+    9. State Management
+      
+      
+   
